@@ -43,16 +43,16 @@ class Product
 
   def self.all()
     sql = "SELECT * FROM products"
-    product_data = SqlRunner.run(sql, values)
+    product_data = SqlRunner.run(sql)
     products = map_items(product_data)
     return products
   end
 
-  def self.find()
-    sql = "SELECT FROM products WHERE id = $1"
+  def self.find(id)
+    sql = "SELECT * FROM products WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
-    return Manufacturer.new(result)
+    return Product.new(result)
   end
 
   def check_manufacturer()
@@ -63,10 +63,15 @@ class Product
     end
   end
 
-  def check_stock_level
-    if @quantity < 10
+  def stock_level()
+    sql = "SELECT * FROM products WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    product = Product.new(result)
+    stock_level = product.quantity.to_i
+    if stock_level <= 10
       return "Red Allert ....Low Stock"
-    elsif 10 <= @quantity <= 40
+    elsif stock_level >= 40
       return "Yellow Allert .... Medium Level Stock"
     else
       return "Green ..... In Stock"

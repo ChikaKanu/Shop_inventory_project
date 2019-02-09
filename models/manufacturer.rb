@@ -22,14 +22,14 @@ class Manufacturer
 
   def products()
     sql = "SELECT products.name, products.description FROM products WHERE products.manufacturer_id = $1"
-    values = [@id]
+    values = [id]
     products_data = SqlRunner.run(sql, values)
-    return productss_data.map{|product| Product.new(product)}
+    return products_data.map{|product| Product.new(product)}
   end
 
   def update()
     sql = "UPDATE manufacturers SET (name, address) = ($1, $2) WHERE id = $3"
-    values = [@id, @name, @address]
+    values = [@name, @address]
     SqlRunner.run(sql, values)
   end
 
@@ -40,7 +40,7 @@ class Manufacturer
   end
 
   def self.find()
-    sql = "SELECT FROM manufacturers WHERE id = $1"
+    sql = "SELECT * FROM manufacturers WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
     return Manufacturer.new(result)
