@@ -20,11 +20,21 @@ post '/products' do
   redirect to '/products'
 end
 
+get '/products/search' do
+  @products = Product.all
+  @manufacturers = Manufacturer.all
+  erb(:"products/search")
+end
+
+post '/products/search' do
+  Product.search(params["name"])
+  erb (:"products/show_search")
+end
+
 get '/products/:id' do
   @product = Product.find(params['id'])
   erb(:"products/show")
 end
-
 
 get '/products/:id/edit' do
   @manufacturers = Manufacturer.all

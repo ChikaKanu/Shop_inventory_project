@@ -53,6 +53,13 @@ class Product
     return Product.new(result)
   end
 
+  def self.search(name)
+    sql = "SELECT * FROM products WHERE name = $1"
+    values = [name]
+    result = SqlRunner.run(sql, values).first
+    return Product.new(result)
+  end
+
   def check_manufacturer()
     if @manufacturer_id == ''
       return true

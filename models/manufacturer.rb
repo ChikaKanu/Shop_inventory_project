@@ -4,8 +4,8 @@ require('pry-byebug')
 
 class Manufacturer
 
-  attr_reader
-  attr_accessor :id, :address, :name
+  attr_reader :name
+  attr_accessor :id, :address
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
