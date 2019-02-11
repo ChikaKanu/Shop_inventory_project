@@ -75,3 +75,5 @@
 <li><a href="/products/new">Add Product</a></li>
 <li><a href="/products/">Find Products</a></li>
 <li><a href="/products/:id/edit">Update Products</a></li>
+
+    <li><a href="/products/<%= @product.id %>">Find Products</a></li>
