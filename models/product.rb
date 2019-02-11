@@ -28,11 +28,9 @@ class Product
     return product_data.map{|product| Product.new(product)}
   end
 
-  def manufacturers()
-    sql = "SELECT * FROM manufacturers WHERE id = $1"
-    values = [@id]
-    results = SqlRunner.run(sql, values)
-    return results.map{|manufacturer| Manufacturer.new(manufacturer)}
+  def manufacturer()
+    manufacturer = Manufacturer.find(@manufacturer_id)
+    return manufacturer
   end
 
   def self.update()

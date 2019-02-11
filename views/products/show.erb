@@ -1,0 +1,12 @@
+<h2><%= @product.name %></h2>
+
+<p>House: <%= @student.house.name.capitalize %></p>
+<p>Age: <%= @student.age %></p>
+<h3><a href="/products/<%= product.id %>"><%= @product.name %></a></h3>
+<p>Description: <%= @product.description. %></p>
+<p>Manufacturer: <%= @product.manufacturer.name.capitalize %></p>
+<p>Quantity: <%= @product.quantity%></p>
+<p>Cost: <%= @product.cost%></p>
+<p>Price: <%= @product.price%></p>
+<a href="/products/<%= @product.id %>/edit">Edit</a>
+<form action="/products/<%= @product.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

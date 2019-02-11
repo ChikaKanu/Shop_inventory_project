@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Coded Computer Company</title>
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="/products">Products</a>
+          <ul>
+            <li><a href="Add Products">Add Products</a></li>
+            <li><a href="Update Products">Update Products</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="/Manufacturers">Manufacturers</a>
+          <ul>
+            <li><a href="Add Manufacturers">Add Manufacturers</a></li>
+            <li><a href="Update Manufacturers">Update Manufacturers</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="/Stock Level">Stock Level</a>
+          <ul>
+            <li><a href="Low Stock">Low Stock</a></li>
+            <li><a href="Medium Stock">Medium Stock</a></li>
+          </ul>
+      </li>
+    </ul>
+  </nav>
+  <section>
+  <%= yield %>
+  </section>
+  </main>
+</body>
+</html>
+
+
+
+<div>
+  <% @products.each do |product| %>
+
+  <div>
+    <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+    <p>Description: <%= product.description. %></p>
+    <p>Manufacturer: <%= product.manufacturer.name.capitalize %></p>
+    <p>Quantity: <%= product.quantity%></p>
+    <p>Cost: <%= product.cost%></p>
+    <p>Price: <%= product.price%></p>
+  </div>
+
+  <% end %>
+</div>

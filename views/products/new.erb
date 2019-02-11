@@ -1,0 +1,42 @@
+<h2>Add Product</h2>
+<form method="POST" action="/products">
+  <div>
+
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name"/>
+    </div>
+
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description"/>
+    </div>
+
+    <div>
+      <label for="manufacturer_select">Select Manufacturer:</label>
+      <select name="manufacturer_id" id="manufacturer_select">
+            <option value=<%= manufacturer.id %>><%= manufacturer.name.capitalize %></option>
+      </select>
+    </div>
+
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" id="quantity"/>
+    </div>
+
+    <div>
+      <label for="cost">Cost:</label>
+      <input type="number" name="cost" id="cost"/>
+    </div>
+
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" name="price" id="price"/>
+    </div>
+
+    <div>
+      <input type="submit" value="Add Product"/>
+    </div>
+
+  </div>
+</form>

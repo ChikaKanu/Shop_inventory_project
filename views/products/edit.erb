@@ -1,0 +1,48 @@
+<h2>Edit <%= @product.name %></h2>
+<form method="POST" action="/products/<%= @product.id %>">
+  <div>
+
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= @product.name %>"/>
+    </div>
+
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description" value="<%= @product.description%>"/>
+    </div>
+
+    <div>
+      <label for="manufacturer_select">Select Manufacturer:</label>
+      <select name="manufacturer_id" id="manufacturer_select" selected="<%= @product.manufacturer_id  %>">
+        <% @manufacturers.each do |manufacturer| %>
+          <% if manufacturer.id == @product.manufacturer_id %>
+            <option value=<%= manufacturer.id %> selected><%= manufacturer.name.capitalize %></option>
+          <% else %>
+            <option value=<%= manufacturer.id %>><%= manufacturer.name.capitalize %></option>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" id="quantity" value="<%= @product.quantity %>"/>
+    </div>
+
+    <div>
+      <label for="cost">Cost:</label>
+      <input type="number" name="cost" id="cost" value="<%= @product.cost %>"/>
+    </div>
+
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" name="price" id="price" value="<%= @product.price %>"/>
+    </div>
+
+    <div>
+      <input type="submit" value="Update Product"/>
+    </div>
+
+  </div>
+</form>

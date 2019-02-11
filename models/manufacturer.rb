@@ -4,8 +4,8 @@ require('pry-byebug')
 
 class Manufacturer
 
-  attr_reader :name
-  attr_accessor :id, :address
+  attr_reader
+  attr_accessor :id, :address, :name
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -39,7 +39,7 @@ class Manufacturer
     return manufacturers_data.map{|manufacturer| Manufacturer.new(manufacturer)}
   end
 
-  def self.find()
+  def self.find(id)
     sql = "SELECT * FROM manufacturers WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
