@@ -50,3 +50,28 @@
 
   <% end %>
 </div>
+
+<div>
+  <% @products.each do |product| %>
+
+  <div>
+    <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+    <p>Description: <%= product.description%></p>
+    <p>Manufacturer: <%= product.manufacturer.name.capitalize %></p>
+    <p>Quantity: <%= product.quantity%></p>
+    <p>Cost: <%= product.cost%></p>
+    <p>Price: <%= product.price%></p>
+  </div>
+
+  <% end %>
+</div>
+
+
+<li><a href="/manufacturers/new">Add Manufacturer</a></li>
+<li><a href="/manufacturers/:id">Find Manufacturer</a></li>
+<li><a href="/manufacturers/:id/edit">Update Manufacturer</a></li>
+
+
+<li><a href="/products/new">Add Product</a></li>
+<li><a href="/products/">Find Products</a></li>
+<li><a href="/products/:id/edit">Update Products</a></li>
