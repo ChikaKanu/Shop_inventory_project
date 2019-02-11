@@ -27,7 +27,7 @@ get '/products/search' do
 end
 
 post '/products/search' do
-  Product.search(params["name"])
+  @product = Product.search(params["name"])
   erb (:"products/show_search")
 end
 
