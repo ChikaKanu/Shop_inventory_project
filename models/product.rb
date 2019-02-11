@@ -33,9 +33,9 @@ class Product
     return manufacturer
   end
 
-  def self.update()
+  def update()
     sql = "UPDATE products SET (name, description, manufacturer_id, quantity, cost, price) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
-    values = [id]
+    values = [@name, @description, @manufacturer_id, @quantity, @cost, @price, @id]
     SqlRunner.run(sql, values)
   end
 
