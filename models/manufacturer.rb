@@ -29,7 +29,7 @@ class Manufacturer
 
   def update()
     sql = "UPDATE manufacturers SET (name, address) = ($1, $2) WHERE id = $3"
-    values = [@name, @address]
+    values = [@name, @address, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -53,14 +53,10 @@ class Manufacturer
     return Manufacturer.new(result)
   end
 
-  def self.delete()
-    if Product.check_manufacturer == true then
+  def delete(id)
     sql = "DELETE FROM manufacturers WHERE id = $1"
-    value = [@id]
+    value = [id]
     SqlRunner.run(sql, values)
-    else
-      return "Delete failed. Unassign manufacturer to products before deleting"
-    end
   end
 
   def self.delete_all()

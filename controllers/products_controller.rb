@@ -53,7 +53,7 @@ post '/products/:id' do
 end
 
 post '/products/:id/delete' do
-  product = Product.find(params['id'])
-  product.delete
+  product1 = Product.find(params['id'])
+  Product.delete(product1.id)
   redirect to '/products'
 end

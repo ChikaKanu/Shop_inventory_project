@@ -25,13 +25,13 @@ get '/manufacturers/search' do
   erb(:"manufacturers/search")
 end
 
-post '/manufacturers/search' do
+get '/manufacturers/search/name' do
   @manufacturer = Manufacturer.search(params["name"])
   erb (:"manufacturers/show_search")
 end
 
 get '/manufacturers/:id' do
-  @manufacturer = Manufacturer.find(params['id'].to_i)
+  @manufacturer = Manufacturer.find(params['id'])
   erb( :"manufacturers/show" )
 end
 
@@ -42,8 +42,7 @@ get '/manufacturers/:id/edit' do
 end
 
 post '/manufacturers/:id' do
-  manufacturer = Manufacturer.new(params)
-  manufacturer.update
+  Manufacturer.new(params).update
   redirect to "/manufacturers/#{params['id']}"
 end
 

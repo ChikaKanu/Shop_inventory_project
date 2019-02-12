@@ -90,9 +90,9 @@ class Product
     end
   end
 
-  def self.delete()
+  def self.delete(id)
     sql = "DELETE FROM products WHERE id = $1"
-    value = [@id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 
