@@ -13,8 +13,8 @@ class Product
     @description = options['description']
     @manufacturer_id = options['manufacturer_id']
     @quantity = options['quantity']
-    @cost = options['cost']
-    @price = options['price']
+    @cost = options['cost'].to_i
+    @price = options['price'].to_i
   end
 
   def save()
@@ -102,5 +102,9 @@ class Product
     SqlRunner.run(sql)
   end
 
+  def mark_up
+    result = @price - @cost
+    return result
+  end
 
 end
