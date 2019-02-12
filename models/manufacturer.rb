@@ -27,6 +27,13 @@ class Manufacturer
     return products_data.map{|product| Product.new(product)}
   end
 
+  def products_by_name()
+    sql = "SELECT * FROM products WHERE manufacturer.name = $1"
+    values = [name]
+    products_data = SqlRunner.run(sql, values)
+    return products_data.map{|product| Product.new(product)}
+  end
+
   def update()
     sql = "UPDATE manufacturers SET (name, address) = ($1, $2) WHERE id = $3"
     values = [@name, @address]

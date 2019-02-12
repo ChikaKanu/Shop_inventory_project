@@ -4,10 +4,25 @@
   <div>
 
     <div>
-      <label for="name">Name:</label>
+      <label for="name">Search by Name:</label>
       <input type="text" name="name" id="name"/>
     </div>
 
   </div>
   <input type="submit" value="Search">
+</form>
+
+<br>
+<br>
+
+<form method="POST" action="/products/search/manufacturer">
+<div>
+  <label for="manufacturer_id">Search by Manufacturer:</label>
+  <select name="manufacturer_id" id="manufacturer_select">
+          <% @manufacturers.each do |manufacturer| %>
+        <option value=<%= manufacturer.id %>><%= manufacturer.name.capitalize %></option>
+        <% end %>
+  </select>
+</div>
+<input type="submit" value="Search">
 </form>
