@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/product.rb')
 require_relative('../models/manufacturer.rb')
+require_relative('../models/category.rb')
 also_reload('./models/*')
 
 get '/products' do
@@ -12,6 +13,7 @@ end
 get '/products/new' do
   @products = Product.all
   @manufacturers = Manufacturer.all
+  @categories = Category.all
   erb(:"products/new")
 end
 
@@ -23,6 +25,7 @@ end
 get '/products/search' do
   @products = Product.all
   @manufacturers = Manufacturer.all
+  @categories = Category.all
   erb(:"products/search")
 end
 
@@ -36,6 +39,11 @@ get '/products/search/manufacturer' do
   erb (:"products/show_search_manufacturer")
 end
 
+get '/products/search/category' do
+  @product = Product.search_by_category(params["worth"].to_i)
+  erb (:"products/show_search_category")
+end
+
 get '/products/:id' do
   @product = Product.find(params['id'])
   erb(:"products/show")
@@ -43,6 +51,7 @@ end
 
 get '/products/:id/edit' do
   @manufacturers = Manufacturer.all
+  @categories = Category.all
   @product = Product.find(params['id'])
   erb(:"products/edit")
 end

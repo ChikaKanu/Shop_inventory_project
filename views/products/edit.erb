@@ -25,6 +25,19 @@
       </select>
     </div>
 
+        <div>
+          <label for="category_select">Select Category:</label>
+          <select name="category_id" id="category_select" selected="<%= @product.category_id  %>">
+            <% @categories.each do |category| %>
+              <% if category.id == @product.category_id %>
+                <option value=<%= category.id %> selected><%= category.worth.capitalize %></option>
+              <% else %>
+                <option value=<%= category.id %>><%= category.worth.capitalize %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </div>
+
     <div>
       <label for="quantity">Quantity:</label>
       <input type="number" name="quantity" id="quantity" value="<%= @product.quantity %>"/>

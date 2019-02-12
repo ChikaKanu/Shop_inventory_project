@@ -27,3 +27,19 @@
 </div>
 <input type="submit" value="Search">
 </form>
+
+<br>
+<br>
+
+<form method="GET" action="/products/search/category">
+<div>
+  <label for="category_id">Search by Category:</label>
+  <select name="category_id" id="category_select">
+       <option value="" selected disabled hidden>Choose here</option>
+          <% @categories.each do |category| %>
+        <option value=<%= category.id %>><%= category.worth.capitalize %></option>
+        <% end %>
+  </select>
+</div>
+<input type="submit" value="Search">
+</form>

@@ -1,4 +1,5 @@
 require_relative( "../models/manufacturer.rb" )
+require_relative( "../models/category.rb" )
 require_relative("../db/sql_runner")
 require('pry-byebug')
 
@@ -29,6 +30,11 @@ class Product
     return product_data.map{|product| Product.new(product)}
   end
 
+  def category()
+    category = Category.find(@category_id)
+    return category
+  end
+
   def manufacturer()
     manufacturer = Manufacturer.find(@manufacturer_id)
     return manufacturer
@@ -36,7 +42,7 @@ class Product
 
   def self.search_by_category(category_id)
     sql = "SELECT * FROM products WHERE category_id = $1"
-    values = [manufacturer_id]
+    values = [category_id]
     products = SqlRunner.run(sql, values)
     return products.map{|product| Product.new(product)}
   end

@@ -15,8 +15,19 @@
     <div>
       <label for="manufacturer_id">Select Manufacturer:</label>
       <select name="manufacturer_id" id="manufacturer_select">
+         <option value="" selected disabled hidden>Choose here</option>
               <% @manufacturers.each do |manufacturer| %>
             <option value=<%= manufacturer.id %>><%= manufacturer.name.capitalize %></option>
+            <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="category_id">Search by Category:</label>
+      <select name="category_id" id="category_select">
+           <option value="" selected disabled hidden>Choose here</option>
+              <% @categories.each do |category| %>
+            <option value=<%= category.id %>><%= category.worth.capitalize %></option>
             <% end %>
       </select>
     </div>
