@@ -46,6 +46,13 @@ class Manufacturer
     return Manufacturer.new(result)
   end
 
+  def self.search(name)
+    sql = "SELECT * FROM manufacturers WHERE name = $1"
+    values = [name]
+    result = SqlRunner.run(sql, values).first
+    return Manufacturer.new(result)
+  end
+
   def self.delete()
     if Product.check_manufacturer == true then
     sql = "DELETE FROM manufacturers WHERE id = $1"

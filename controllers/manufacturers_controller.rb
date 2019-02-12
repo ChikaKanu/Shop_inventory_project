@@ -20,6 +20,16 @@ post '/manufacturer' do
   redirect to '/manufacturers'
 end
 
+get '/manufacturers/search' do
+  @manufacturers = Manufacturer.all
+  erb(:"manufacturers/search")
+end
+
+post '/manufacturers/search' do
+  @manufacturer = Manufacturer.search(params["name"])
+  erb (:"manufacturers/show_search")
+end
+
 get '/manufacturers/:id' do
   @manufacturer = Manufacturer.find(params['id'].to_i)
   erb( :"manufacturers/show" )
