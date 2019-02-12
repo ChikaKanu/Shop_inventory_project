@@ -4,7 +4,7 @@ require('pry-byebug')
 
 class Category
 
-  attr_reader :worth
+  attr_reader :worth, :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
