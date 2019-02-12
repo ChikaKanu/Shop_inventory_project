@@ -5,21 +5,22 @@ require('pry-byebug')
 class Product
 
   attr_reader :id
-  attr_accessor :name, :description, :manufacturer_id, :quantity, :cost, :price
+  attr_accessor :name, :description, :manufacturer_id, :category_id, :quantity, :cost, :price
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @description = options['description']
     @manufacturer_id = options['manufacturer_id']
+    @category_id = options['category_id']
     @quantity = options['quantity']
     @cost = options['cost'].to_i
     @price = options['price'].to_i
   end
 
   def save()
-    sql = "INSERT INTO products (name, description, manufacturer_id, quantity, cost, price) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
-    values = [@name, @description, @manufacturer_id, @quantity, @cost, @price]
+    sql = "INSERT INTO products (name, description, manufacturer_id, category_id, quantity, cost, price) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
+    values = [@name, @description, @manufacturer_id, @category_id, @quantity, @cost, @price]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -33,7 +34,14 @@ class Product
     return manufacturer
   end
 
-  def self.manufacturer_id_search(manufacturer_id)
+  def self.search_by_category(category_id)
+    sql = "SELECT * FROM products WHERE category_id = $1"
+    values = [manufacturer_id]
+    products = SqlRunner.run(sql, values)
+    return products.map{|product| Product.new(product)}
+  end
+
+  def self.search_by_manufacturer(manufacturer_id)
     sql = "SELECT * FROM products WHERE manufacturer_id = $1"
     values = [manufacturer_id]
     products = SqlRunner.run(sql, values)
@@ -41,8 +49,8 @@ class Product
   end
 
   def update()
-    sql = "UPDATE products SET (name, description, manufacturer_id, quantity, cost, price) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
-    values = [@name, @description, @manufacturer_id, @quantity, @cost, @price, @id]
+    sql = "UPDATE products SET (name, description, manufacturer_id, :category_id quantity, cost, price) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
+    values = [@name, @description, @manufacturer_id, @category_id, @quantity, @cost, @price, @id]
     SqlRunner.run(sql, values)
   end
 

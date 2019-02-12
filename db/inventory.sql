@@ -11,7 +11,7 @@ CREATE TABLE manufacturers (
 
 CREATE TABLE categories (
   id SERIAL8 PRIMARY KEY,
-  value VARCHAR(255)
+  worth VARCHAR(255)
 );
 
 CREATE TABLE products (

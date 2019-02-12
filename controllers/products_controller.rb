@@ -32,7 +32,7 @@ get '/products/search/name' do
 end
 
 get '/products/search/manufacturer' do
-  @products = Product.manufacturer_id_search(params['manufacturer_id'].to_i)
+  @products = Product.search_by_manufacturer(params['manufacturer_id'].to_i)
   erb (:"products/show_search_manufacturer")
 end
 

@@ -5,7 +5,7 @@ require("pry-byebug")
 
 
 Manufacturer.delete_all()
-Category.delet_all()
+Category.delete_all()
 Product.delete_all()
 
 
@@ -71,11 +71,11 @@ manufacturer9 = Manufacturer.new({
 
 manufacturer9.save()
 
-category1 = Category.new({'value' => 'High Range'})
+category1 = Category.new({'worth' => 'High Range'})
 category1.save()
-category2 = Category.new({'value' => 'Middle Range'})
+category2 = Category.new({'worth' => 'Middle Range'})
 category2.save()
-category3 = Category.new({'value' => 'Low Range'})
+category3 = Category.new({'worth' => 'Low Range'})
 category3.save()
 
 
