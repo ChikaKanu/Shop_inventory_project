@@ -1,10 +1,13 @@
 require_relative( "../models/manufacturer.rb" )
 require_relative( "../models/product.rb" )
+require_relative( "../models/category.rb" )
 require("pry-byebug")
 
 
 Manufacturer.delete_all()
+Category.delet_all()
 Product.delete_all()
+
 
 manufacturer1 = Manufacturer.new({"name" => "Bosch",
   "address" => "10 Ricardo Str, Edinburgh"
@@ -67,6 +70,14 @@ manufacturer9 = Manufacturer.new({
 })
 
 manufacturer9.save()
+
+category1 = Category.new({'value' => 'High Range'})
+category1.save()
+category2 = Category.new({'value' => 'Middle Range'})
+category2.save()
+category3 = Category.new({'value' => 'Low Range'})
+category3.save()
+
 
 product1 = Product.new({'name' => 'Inspiron 120',
   'description' => '14 inch laptop of golden color',
