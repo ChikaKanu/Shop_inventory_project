@@ -33,7 +33,7 @@ class Product
     return manufacturer
   end
 
-  def manufacturer_id_search(manufacturer_id)
+  def self.manufacturer_id_search(manufacturer_id)
     sql = "SELECT * FROM products WHERE manufacturer_id = $1"
     values = [manufacturer_id]
     products = SqlRunner.run(sql, values)

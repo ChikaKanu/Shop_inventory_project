@@ -26,12 +26,12 @@ get '/products/search' do
   erb(:"products/search")
 end
 
-post '/products/search' do
+get '/products/search' do
   @product = Product.search(params["name"])
   erb (:"products/show_search")
 end
 
-post '/products/search/manufacturer' do
+get '/products/search/manufacturer' do
   @products = Product.manufacturer_id_search(params['manufacturer_id'])
   erb (:"products/show_search_manufacturer")
 end
