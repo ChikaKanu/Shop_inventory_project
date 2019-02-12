@@ -15,7 +15,7 @@ get '/manufacturers/new' do
   erb(:"/manufacturers/new")
 end
 
-post '/manufacturer' do
+post '/manufacturers' do
   Manufacturer.new(params).save
   redirect to '/manufacturers'
 end
