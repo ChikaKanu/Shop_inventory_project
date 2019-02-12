@@ -40,7 +40,7 @@ get '/products/search/manufacturer' do
 end
 
 get '/products/search/category' do
-  @product = Product.search_by_category(params["worth"].to_i)
+  @products = Product.search_by_category(params["category_id"].to_i)
   erb (:"products/show_search_category")
 end
 

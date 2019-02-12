@@ -25,6 +25,13 @@ class Category
     @id = result['id'].to_i
   end
 
+  def products()
+    sql = "SELECT * FROM products WHERE category_id = $1"
+    values = [@id]
+    products_data = SqlRunner.run(sql, values)
+    return products_data.map{|product| Product.new(product)}
+  end
+
   def self.find(id)
     sql = "SELECT * FROM categories WHERE id = $1"
     values = [id]
