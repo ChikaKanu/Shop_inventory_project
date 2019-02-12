@@ -53,9 +53,9 @@ class Manufacturer
     return Manufacturer.new(result)
   end
 
-  def delete(id)
+  def self.delete(id)
     sql = "DELETE FROM manufacturers WHERE id = $1"
-    value = [id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 
