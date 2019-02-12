@@ -37,7 +37,7 @@ class Product
     sql = "SELECT * FROM products WHERE manufacturer_id = $1"
     values = [manufacturer_id]
     products = SqlRunner.run(sql, values)
-    return Product.new(products)
+    return products.map{|product| Product.new(product)}
   end
 
   def update()
