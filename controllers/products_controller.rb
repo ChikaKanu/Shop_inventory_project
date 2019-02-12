@@ -32,7 +32,7 @@ post '/products/search' do
 end
 
 post '/products/search/manufacturer' do
-  @manufacturers = Manufacturer.product_by_name(params["name"])
+  @products = Product.manufacturer_name(params["manufacturers.name"])
   erb (:"products/show_search_manufacturer")
 end
 

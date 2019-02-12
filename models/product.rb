@@ -33,6 +33,13 @@ class Product
     return manufacturer
   end
 
+  def manufacturer_name()
+    sql = "SELECT products.name, products.description, manufacturers.name AS manufacturer, products.quantity, products.cost, products.price FROM products INNER JOIN manufacturers ON products.manufacturer_id = manufacturers.id WHERE manufacturers.name = $1"
+    values = [manufacturers.name]
+    result = SqlRunner.run(sql, values)
+    return Product.new(result)
+  end
+
   def update()
     sql = "UPDATE products SET (name, description, manufacturer_id, quantity, cost, price) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
     values = [@name, @description, @manufacturer_id, @quantity, @cost, @price, @id]
