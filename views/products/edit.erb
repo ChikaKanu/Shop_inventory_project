@@ -1,19 +1,24 @@
-<div id="product-wrapper" Class="scroll_style" Class="product">
+<br>
+<br>
 <h2>Edit <%= @product.name %></h2>
+
 <form method="POST" action="/products/<%= @product.id %>">
-  <div>
+  <div id="product-wrapper" Class="scroll_style" Class="product">
 
     <div>
+      <p>
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" value="<%= @product.name %>"/>
+      </p>
     </div>
-
     <div>
+    <p>
       <label for="description">Description:</label>
       <input type="text" name="description" id="description" value="<%= @product.description%>"/>
+    </p>
     </div>
-
     <div>
+    <p>
       <label for="manufacturer_select">Select Manufacturer:</label>
       <select name="manufacturer_id" id="manufacturer_select" selected="<%= @product.manufacturer_id  %>">
         <% @manufacturers.each do |manufacturer| %>
@@ -24,9 +29,10 @@
           <% end %>
         <% end %>
       </select>
+    </p>
     </div>
-
-        <div>
+      <div>
+          <p>
           <label for="category_select">Select Category:</label>
           <select name="category_id" id="category_select" selected="<%= @product.category_id  %>">
             <% @categories.each do |category| %>
@@ -37,27 +43,28 @@
               <% end %>
             <% end %>
           </select>
-        </div>
+        </p>
+      </div>
 
-    <div>
-      <label for="quantity">Quantity:</label>
-      <input type="number" name="quantity" id="quantity" value="<%= @product.quantity %>"/>
-    </div>
+      <div>
+        <p>
+          <label for="quantity">Quantity:</label>
+          <input type="number" name="quantity" id="quantity" value="<%= @product.quantity %>"/>
+        </p>
+      </div>
 
-    <div>
-      <label for="cost">Cost:</label>
-      <input type="number" name="cost" id="cost" value="<%= @product.cost %>"/>
-    </div>
-
-    <div>
-      <label for="price">Price:</label>
-      <input type="number" name="price" id="price" value="<%= @product.price %>"/>
-    </div>
+      <div>
+        <p>
+        <label for="cost">Cost:</label>
+        <input type="number" name="cost" id="cost" value="<%= @product.cost %>"/>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" value="<%= @product.price %>"/>
+      </p>
+      </div>
 
     <div>
       <input type="submit" value="Update Product"/>
     </div>
 
-  </div>
 </form>
 </div>

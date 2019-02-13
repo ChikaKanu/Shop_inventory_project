@@ -6,7 +6,7 @@
 <div id="product-wrapper" Class="scroll_style" Class="product">
   <div>
       <div Class="product">
-        <h4>Name: <%= product.name %></a></h4>
+        <p><h4>Name: <%= product.name %></a></h4></p>
         <% if product.stock_level <= 10%>
               <div Class="visible1"><h4> Low Stock </h4></div>
           <%elsif product.stock_level >= 40%>

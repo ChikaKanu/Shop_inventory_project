@@ -17,9 +17,19 @@ get '/products/new' do
   erb(:"products/new")
 end
 
+get '/products/new/feedback' do
+  @products = Product.all
+  erb(:"products/index_fb")
+end
+
 post '/products' do
   Product.new(params).save
-  redirect to '/products'
+  redirect to '/products/new/feedback'
+end
+
+get '/products/delete/feedback' do
+  @products = Product.all
+  erb(:"products/index_delete_fb")
 end
 
 get '/products/search' do
@@ -64,5 +74,5 @@ end
 post '/products/:id/delete' do
   product1 = Product.find(params['id'])
   Product.delete(product1.id)
-  redirect to '/products'
+  redirect to '/products/delete/feedback'
 end
