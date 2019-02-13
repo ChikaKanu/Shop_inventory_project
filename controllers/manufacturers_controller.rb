@@ -10,14 +10,24 @@ get '/manufacturers' do
   erb ( :"manufacturers/index" )
 end
 
+get '/manufacturers/delete/feedback' do
+  @manufacturers = Manufacturer.all
+  erb ( :"manufacturers/index_delete_fb" )
+end
+
 get '/manufacturers/new' do
   @manufacturers = Manufacturer.all
   erb(:"/manufacturers/new")
 end
 
+get '/manufacturers/new/feedback' do
+  @manufacturers = Manufacturer.all
+  erb ( :"manufacturers/index_new_fb" )
+end
+
 post '/manufacturers' do
   Manufacturer.new(params).save
-  redirect to '/manufacturers'
+  redirect to '/manufacturers/new/feedback'
 end
 
 get '/manufacturers/search' do
@@ -49,5 +59,5 @@ end
 post '/manufacturers/:id/delete' do
   manufacturer1 = Manufacturer.find(params['id'])
   Manufacturer.delete(manufacturer1.id)
-  redirect to '/manufacturers'
+  redirect to '/manufacturers/delete/feedback'
 end

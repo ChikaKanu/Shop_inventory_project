@@ -1,0 +1,18 @@
+<br>
+<br>
+<h3>Manufacturer Added Succesfully!!</h3>
+<div>
+  <a href="/manufacturers/search">Search Manufacturer</a></li>
+</div>
+<div id="product-wrapper" Class="scroll_style" Class="product">
+  <% @manufacturers.each do |manufacturer| %>
+  <div>
+    <h3>Name: <%= manufacturer.name %> </h3>
+    <p>Address: <%= manufacturer.address%></p>
+  </div>
+  <div>
+  <a href="/manufacturers/<%=manufacturer.id %>/edit">Edit</a>
+  <form action="/manufacturers/<%=manufacturer.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+  </div>
+<% end %>
+</div>
