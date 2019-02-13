@@ -1,24 +1,29 @@
+<br>
+<br>
+<h3>Products Displayed by Manufacturer</h3>
+
   <% @products.each do |product| %>
-  <br>
-  <h3>Products Displayed by <%=product.manufacturer.name.capitalize%> [Manufacturer]</h3>
-  <!-- <%end%> -->
-</div>
-
 <div id="product-wrapper" Class="scroll_style" Class="product">
-  <!-- <% @products.each do |product| %> -->
-
   <div>
-    <h3>Name: <%= product.name %></a></h3>
-    <p>Description: <%= product.description%></p>
-    <p>Manufacturer: <%= product.manufacturer.name.capitalize%></p>
-    <p>Category: <%= product.category.worth.capitalize%></p>
-    <p>Quantity: <%= product.quantity%></p>
-    <p>Cost: <%= product.cost%></p>
-    <p>Price: <%= product.price%></p>
-    <p>Mark_up: <%= product.mark_up %> </p>
-  </div>
-<div>
- <%= product.stock_level %>
-</div>
-  <% end %>
+      <div Class="product">
+        <h4>Name: <%= product.name %></a></h4>
+        <% if product.stock_level <= 10%>
+              <div Class="visible1"><h4> Low Stock </h4></div>
+          <%elsif product.stock_level >= 40%>
+              <div Class="visible2"><h4> Medium Level Stock </h4></div>
+          <%else%>
+              <div Class="visible3"><h4> In Stock </h4></div>
+          <%end%>
+          <p>Description: <%= product.description%></p>
+          <p>Manufacturer: <%= product.manufacturer.name.capitalize%></p>
+          <p>Category: <%= product.category.worth.capitalize%></p>
+          <p>Quantity: <%= product.quantity%></p>
+          <p>Cost: <%= product.cost%></p>
+          <p>Price: <%= product.price%></p>
+          <p>Mark_up: <%= product.mark_up %> </p>
+      </div>
+    <div>
+      <%= product.stock_level %>
+    </div>
+    <% end %>
 </div>
