@@ -22,8 +22,10 @@
           <p>Price: <%= product.price%></p>
           <p>Mark_up: <%= product.mark_up %> </p>
       </div>
-    <div>
-      <%= product.stock_level %>
-    </div>
+      <div Class="edit_click">
+      <a href="/products/<%=product.id %>/edit">Edit</a>
+      <form action="/products/<%=product.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+      </div>
     <% end %>
+  </div>
 </div>
