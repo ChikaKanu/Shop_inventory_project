@@ -1,0 +1,27 @@
+body {
+  background: black url('/images/SurfaceHome.jpg');
+  background-size: 100%;
+  background-repeat: repeat;
+  color: none;
+  font-family: Georgia, serif;
+  padding: 30px;
+  margin: 0px;
+}
+
+#product-wrapper {
+  margin-left: 130px;
+}
+.product {
+  padding: 5px;
+  display: inline-block;
+  overflow: auto;
+}
+
+.scroll_style {
+  border: 5px double #ccc;
+  height:450px;
+  background: grey;
+  width:300px;
+  font:16px/26px Georgia, Garamond, Serif;
+  overflow:auto;
+}

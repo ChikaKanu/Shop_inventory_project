@@ -4,18 +4,16 @@
   <a href="/products/search">Search Products</a></li>
 </div>
 
-<div>
+<div id="product-wrapper" Class="scroll_style">
   <% @products.each do |product| %>
 
-  <div>
-    <h3>Name: <%= product.name %></a></h3>
+  <div Class="product">
+    <h5>Name: <%= product.name %></a></h5>
     <p>Description: <%= product.description%></p>
-    <p>Manufacturer: <%= product.manufacturer.name %></p>
+    <p>Manufacturer: <%= product.manufacturer.name %> </p>
+    <p>Quantity:    [ <%= product.quantity%>]      Cost:     [ £<%=product.cost%>] </p>
+    <p> Price:    [ £<%=product.price%>]       Mark_up:    [ £<%=product.mark_up%>] </p>
     <p>Category: <%= product.category.worth %> </p>
-    <p>Quantity: <%= product.quantity%></p>
-    <p>Cost: <%= product.cost%></p>
-    <p>Price: <%= product.price%></p>
-    <p>Mark_up: <%= product.mark_up %> </p>
   </div>
 
 <div>

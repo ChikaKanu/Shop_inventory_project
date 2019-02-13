@@ -1,14 +1,12 @@
-#nav-fixed li {
-  display: block;
-  height: 3em;
-  margin: 0 3px;
-  padding: 3px 7px;
-  background: Khaki;
-  float: left;
-  text-align: center;
-  line-height: 3em;
+.form-el {
+  margin: 10px 0;
 }
 
-#nav-fixed .double-line {
-  line-height: 1.5em;
+
+.form-wrapper .form-el label {
+  text-align: right;
+  display: inline-block;
+  vertical-align: middle;
+  width: 160px;
+  margin: 0 1em 0 0;
 }
