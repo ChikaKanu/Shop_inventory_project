@@ -15,11 +15,11 @@
       <p>Manufacturer: <%= @product.manufacturer.name.capitalize %></p>
       <p>Category: <%= @product.category.worth.capitalize %></p>
       <p>Quantity: <%= @product.quantity%></p>
-      <p>Cost: <%= @product.cost%></p>
-      <p>Price: <%= @product.price%></p>
+      <p>Cost: £ <%= @product.cost%></p>
+      <p>Price: £ <%= @product.price%></p>
       <br>
 
-      <div>Mark_up: <%= @product.mark_up %> </div>
+      <div>Mark_up: £ <%= @product.mark_up %> </div>
 
     <a href="/products/<%= @product.id %>/edit">Edit</a>
 

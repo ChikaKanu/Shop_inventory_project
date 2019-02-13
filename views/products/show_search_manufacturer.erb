@@ -18,9 +18,9 @@
           <p>Manufacturer: <%= product.manufacturer.name.capitalize%></p>
           <p>Category: <%= product.category.worth.capitalize%></p>
           <p>Quantity: <%= product.quantity%></p>
-          <p>Cost: <%= product.cost%></p>
-          <p>Price: <%= product.price%></p>
-          <p>Mark_up: <%= product.mark_up %> </p>
+          <p>Cost: £ <%= product.cost%></p>
+          <p>Price: £ <%= product.price%></p>
+          <p>Mark_up: £ <%= product.mark_up %> </p>
       </div>
       <div Class="edit_click">
       <a href="/products/<%=product.id %>/edit">Edit</a>

@@ -15,10 +15,10 @@
 <p>Manufacturer: <%= @product.manufacturer.name.capitalize %></p>
 <p>Category: <%= @product.category.worth.capitalize %></p>
 <p>Quantity: <%= @product.quantity%></p>
-<p>Cost: <%= @product.cost%></p>
-<p>Price: <%= @product.price%></p>
+<p>Cost: £ <%= @product.cost%></p>
+<p>Price: £ <%= @product.price%></p>
 
-<div>Mark_up: <%= @product.mark_up %> </div>
+<div>Mark_up: £ <%= @product.mark_up %> </div>
 
 <div><%= @product.stock_level %> </div>
 
