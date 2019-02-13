@@ -81,20 +81,8 @@ class Product
     return Product.new(result)
   end
 
-  def check_manufacturer()
-    if @manufacturer_id == ''
-      return true
-    else
-      return false
-    end
-  end
-
   def stock_level()
-    sql = "SELECT * FROM products WHERE id = $1"
-    values = [id]
-    result = SqlRunner.run(sql, values).first
-    product = Product.new(result)
-    stock_level = product.quantity.to_i
+    stock_level = @quantity.to_i
     return stock_level
   end
 

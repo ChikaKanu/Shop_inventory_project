@@ -14,7 +14,8 @@ body {
 .product {
   padding: 5px;
   display: inline-block;
-  overflow: auto;
+  border: 1px double #ccc;
+  width:400px;
 }
 
 .scroll_style {
