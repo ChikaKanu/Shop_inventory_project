@@ -8,20 +8,30 @@ body {
   margin: 0px;
 }
 
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #4d4d4d;
+   color: white;
+   text-align: center;
+}
+
 #product-wrapper {
   margin-left: 10px;
 }
+
 .product {
   padding: 5px;
   display: inline-block;
-  border: 2px double #ccc;
+  border: 6px double #white;
   width:420px;
 }
 
 .scroll_style {
-  border: 2px double #black;
   height:300px;
-  background: DimGray;
+  background: #4d4d4d;
   width:420px;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
@@ -71,4 +81,10 @@ li a {
 
 li a:hover {
   background-color: #111;
+}
+
+.click {
+  display: block;
+  color: white;
+  text-align: center;
 }

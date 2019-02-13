@@ -1,5 +1,11 @@
-<div>
   <% @products.each do |product| %>
+  <br>
+  <h3>Products Displayed by <%=product.manufacturer.name.capitalize%> [Manufacturer]</h3>
+  <!-- <%end%> -->
+</div>
+
+<div id="product-wrapper" Class="scroll_style" Class="product">
+  <!-- <% @products.each do |product| %> -->
 
   <div>
     <h3>Name: <%= product.name %></a></h3>
