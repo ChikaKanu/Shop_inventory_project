@@ -3,22 +3,28 @@
 <div>
   <a href="/products/search">Search Products</a></li>
 </div>
-
+<br>
+<br>
 <div id="product-wrapper" Class="scroll_style">
   <% @products.each do |product| %>
 
   <div Class="product">
-    <h5>Name: <%= product.name %></a></h5>
+    <h4>Name: <%= product.name %></a></h4>
     <p>Description: <%= product.description%></p>
     <p>Manufacturer: <%= product.manufacturer.name %> </p>
-    <p>Quantity:    [ <%= product.quantity%>]      Cost:     [ £<%=product.cost%>] </p>
-    <p> Price:    [ £<%=product.price%>]       Mark_up:    [ £<%=product.mark_up%>] </p>
+    <p>Quantity:[ <%= product.quantity%>] Cost:[ £<%=product.cost%>] </p>
+    <p> Price: [ £<%=product.price%>] Mark_up:[ £<%=product.mark_up%>] </p>
     <p>Category: <%= product.category.worth %> </p>
   </div>
+  <div>
+    <% if product.stock_level <= 10%>
+          <div Class="visible1"><h4> Low Stock </h4></div>
+          <%elsif product.stock_level >= 40%>
+          <div Class="visible2"><h4> Medium Level Stock </h4></div>
+        <%else%>
+          <div Class="visible3"><h4> In Stock </h4></div>
+          <%end%>
 
-<div>
- <p> <%= product.stock_level %> </p>
-</div>
-
+  </div>
   <% end %>
 </div>

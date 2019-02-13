@@ -95,13 +95,7 @@ class Product
     result = SqlRunner.run(sql, values).first
     product = Product.new(result)
     stock_level = product.quantity.to_i
-    if stock_level <= 10
-      return "Red Allert ....Low Stock"
-    elsif stock_level >= 40
-      return "Yellow Allert .... Medium Level Stock"
-    else
-      return "Green ..... In Stock"
-    end
+    return stock_level
   end
 
   def self.delete(id)

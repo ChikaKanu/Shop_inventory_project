@@ -9,7 +9,7 @@ body {
 }
 
 #product-wrapper {
-  margin-left: 130px;
+  margin-left: 40px;
 }
 .product {
   padding: 5px;
@@ -18,10 +18,31 @@ body {
 }
 
 .scroll_style {
-  border: 5px double #ccc;
-  height:450px;
+  border: 1px double #ccc;
+  height:200px;
   background: grey;
-  width:300px;
+  width:400px;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
+}
+
+.visible1 {
+  background: red;
+  font-family: Georgia, serif;
+  color: bold black;
+  align: center;
+}
+
+.visible2 {
+  background: yellow;
+  font-family: Georgia, serif;
+  color:  black;
+  align: center;
+}
+
+.visible3 {
+  background: green;
+  font-family: Georgia, serif;
+  color: black;
+  align: center;
 }
