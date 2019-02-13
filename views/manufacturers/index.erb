@@ -1,14 +1,15 @@
-<h2>Manufacturers</h2>
-
-
+<br>
+<br>
+<h3>Manufacturers</h3>
 <div>
-  <a href="/manufacturers/search">Search Manufacturers</a></li>
+  <a href="/manufacturers/search">Search Manufacturer</a></li>
 </div>
-
+<div id="product-wrapper" Class="scroll_style" Class="product">
   <% @manufacturers.each do |manufacturer| %>
   <div>
     <h3>Name: <%= manufacturer.name %> </h3>
     <p>Address: <%= manufacturer.address%></p>
+  </div>
 
 <% end %>
 </div>
