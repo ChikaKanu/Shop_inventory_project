@@ -22,7 +22,7 @@
     <p> Price: [ £<%=product.price%>] Mark_up:[ £<%=product.mark_up%>] </p>
     <p>Category: <%= product.category.worth %> </p>
 
-  <div Class="edit_click">
+  <div>
   <a href="/products/<%=product.id %>/edit">Edit</a>
   <form action="/products/<%=product.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
   </div>
