@@ -6,6 +6,7 @@ body {
   font-family: Georgia, serif;
   padding: 30px;
   margin: 0px;
+  display: flex;
 }
 
 .footer {
@@ -24,7 +25,7 @@ body {
 
 .product {
   padding: 5px;
-  display: inline-block;
+  display: inline-flex;
   border: 6px double #white;
   width:420px;
 }
@@ -35,6 +36,7 @@ body {
   width:420px;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
+  display: flex;
 }
 
 .visible1 {
@@ -58,7 +60,7 @@ body {
   align: center;
 }
 
-ul {display: inline;
+ul {display: inline-flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -72,7 +74,7 @@ li {
 }
 
 li a {
-  display: block;
+  display: block flex;
   color: white;
   text-align: center;
   padding: 14px 16px;
