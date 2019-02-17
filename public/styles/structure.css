@@ -1,7 +1,6 @@
 body {
   background: black url('/images/SurfaceHome.jpg');
-  background-size: 100%;
-  background-repeat: repeat;
+  background-size: cover;
   color: none;
   font-family: Georgia, serif;
   padding: 30px;
@@ -25,7 +24,7 @@ body {
 
 .product {
   padding: 5px;
-  display: inline-flex;
+  display: block;
   border: 6px double #white;
   width:420px;
 }
@@ -33,10 +32,15 @@ body {
 .scroll_style {
   height:300px;
   background: #4d4d4d;
-  width:420px;
+  width:450px;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
-  display: flex;
+  display: block;
+}
+
+.red {
+  font-family: Georgia, serif;
+  color: bold red;
 }
 
 .visible1 {
@@ -60,7 +64,7 @@ body {
   align: center;
 }
 
-ul {display: inline-flex;
+ul {display: inline-block;
   list-style-type: none;
   margin: 0;
   padding: 0;

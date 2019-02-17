@@ -40,8 +40,8 @@ get '/products/search' do
 end
 
 get '/products/search/name' do
-  @product = Product.search(params["name"])
-  erb (:"products/show_search")
+    @Product = Product.search(params["name"].to_s)
+    erb (:"products/show_search")
 end
 
 get '/products/search/manufacturer' do

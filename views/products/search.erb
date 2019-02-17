@@ -8,7 +8,12 @@
 
     <div>
       <label for="name">Search by Name:</label>
-      <input type="text" name="name" id="name"/>
+      <input type="text" list="name"/>
+      <datalist id="name">
+        <%@products.each do |product|%>
+        <option value=<%=product.name%>><%= product.name.capitalize %> </option>
+          <% end %>
+      </datalist>
     </div>
 
   </div>
